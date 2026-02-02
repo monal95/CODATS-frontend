@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light mode (default) */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f0f7ff;
+  --bg-tertiary: #e0efff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: #cbd5e1;
+  --blue-primary: #2563eb;
+  --blue-hover: #1d4ed8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark mode */
+:root.dark {
+  color-scheme: dark;
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --border-color: #475569;
+  --blue-primary: #3b82f6;
+  --blue-hover: #2563eb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Custom scrollbar - Light mode */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+:root.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+:root.dark ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Monaco editor customizations */
+.monaco-editor {
+  border-radius: 8px;
+}
+
+.monaco-editor .margin {
+  background-color: var(--bg-secondary) !important;
+}
+
+/* Vulnerability line decorations - Blue themed */
+.vulnerability-line {
+  background-color: rgba(37, 99, 235, 0.15) !important;
+  border-left: 3px solid #2563eb !important;
+}
+
+.vulnerability-line-glyph {
+  background-color: #2563eb;
+  border-radius: 50%;
+  width: 8px !important;
+  height: 8px !important;
+  margin-left: 4px;
+  margin-top: 6px;
+}
+
+/* Animation for scanning */
+@keyframes scan-line {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.scan-animation {
+  animation: scan-line 2s ease-in-out infinite;
+}
+
+/* Smooth transitions for theme switching */
+.transition-theme {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Professional styles */
+.btn-primary {
+  background-color: var(--blue-primary);
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--blue-hover);
+}
+
+input, textarea, select {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--blue-primary);
+  outline: none;
+}
+
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px -10px rgba(14, 165, 233, 0.3);
+}
+
+/* Severity badge colors */
+.severity-critical {
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+}
+
+.severity-high {
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+}
+
+.severity-medium {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+}
+
+.severity-low {
+  background: linear-gradient(135deg, #65a30d 0%, #4d7c0f 100%);
+}
+
+/* Risk score meter */
+.risk-meter {
+  background: conic-gradient(
+    from 180deg,
+    #22c55e 0deg,
+    #eab308 90deg,
+    #f97316 180deg,
+    #ef4444 270deg,
+    #dc2626 360deg
+  );
+}
+
+/* Pulse animation for alerts */
+@keyframes alert-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.alert-pulse {
+  animation: alert-pulse 2s ease-in-out infinite;
+}
+
+/* Toast customizations */
+.toast-custom {
+  background: #1e293b !important;
+  color: white !important;
+  border: 1px solid #334155 !important;
+}
